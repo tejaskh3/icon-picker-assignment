@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import * as FeatherIcons from "react-icons/fi";
+import useIconPickerData from "../hooks/useIconPickerData";
 
 const IconPicker = ({
   rowsInOnePage,
@@ -10,12 +10,10 @@ const IconPicker = ({
   pickerWidth = 500,
   onIconSelect,
 }) => {
-  const iconsPerPage = rowsInOnePage * columnsInOnePage;
-  const allIcons = Object.keys(FeatherIcons).map(
-    (iconName) => FeatherIcons[iconName]
+  const { iconsPerPage, allIcons, totalPages } = useIconPickerData(
+    rowsInOnePage,
+    columnsInOnePage
   );
-  const totalPages = Math.ceil(allIcons.length / iconsPerPage);
-
   const [currentPage, setCurrentPage] = useState(1);
 
   const handleIconClick = (icon) => {
