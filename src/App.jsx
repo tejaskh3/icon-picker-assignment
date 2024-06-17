@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import IconPicker from "../components/IconPicker";
+import IconPicker from "./components/IconPicker";
 
 const App = () => {
   const [selectedIcon, setSelectedIcon] = useState(null);
